@@ -22,12 +22,25 @@
        if ( isset($_POST['submit']) ) {
            
            //Get value manage
-           echo $name = $_POST['name'];
-           echo $email = $_POST['email'];
-           echo $cell = $_POST['cell'];
+           $name = $_POST['name'];
+           $email = $_POST['email'];
+           $cell = $_POST['cell'];
 
            //file manage
            $photo = $_FILES['photo'];
+
+       }
+
+       if ( empty($name) || empty($email) || empty($cell) ) {
+           
+           $mess = "<p class=\" alert alert-danger \"> All fields are required ! <button class=\"close\" data-dismiss=\"alert\">&times;</button></p>";
+
+       }elseif ( filter_var($email, FILTER_VALIDATE_EMAIL) == false ) {
+
+           $mess = "<p class=\" alert alert-warning \"> Invalid Email Address ! <button class=\"close\" data-dismiss=\"alert\">&times;</button></p>";
+       }else{
+         
+           $student -> addNewStudent();
 
        }
 
