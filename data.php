@@ -1,3 +1,13 @@
+
+<?php include_once "vendor/autoload.php"; ?>
+<?php 
+    
+    use App\Controller\Student;
+
+    $student = new Student;
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,13 +36,21 @@
 							</tr>
 						</thead>
 						<tbody>
+							<?php 
+
+                               $data = $student -> allStudent();
+                               
+                               $i = 1;
+                               while( $student_data = $data -> fetch_assoc()):
+
+							 ?>
 							<tr>
-								<td>01</td>
-								<td>Name</td>
-								<td>hasanhridoy@gmail.com</td>
-								<td>01702007493</td>
+								<td><?php echo $i; $i++; ?></td>
+								<td><?php echo $student_data['name'] ?></td>
+								<td><?php echo $student_data['email'] ?></td>
+								<td><?php echo $student_data['cell'] ?></td>
 								<td>
-									<img src="photo/616be71c7157c0ad24602d54de264517.jpeg" alt="" style="height: 80px; width: 120px;">
+									<img src="media/photo/students/<?php echo $student_data['photo'] ?>" alt="" style="height: 80px; width: 120px;">
 								</td>
 								<td>
 									<a href="" class="btn btn-sm btn-info">View</a>
@@ -40,34 +58,7 @@
 									<a href="" class="btn btn-sm btn-danger">Delete</a>
 								</td>
 							</tr>
-							<tr>
-								<td>01</td>
-								<td>Name</td>
-								<td>hasanhridoy@gmail.com</td>
-								<td>01702007493</td>
-								<td>
-									<img src="photo/616be71c7157c0ad24602d54de264517.jpeg" alt="" style="height: 80px; width: 120px;">
-								</td>
-								<td>
-									<a href="" class="btn btn-sm btn-info">View</a>
-									<a href="" class="btn btn-sm btn-success">Edit</a>
-									<a href="" class="btn btn-sm btn-danger">Delete</a>
-								</td>
-							</tr>
-							<tr>
-								<td>01</td>
-								<td>Name</td>
-								<td>hasanhridoy@gmail.com</td>
-								<td>01702007493</td>
-								<td>
-									<img src="photo/616be71c7157c0ad24602d54de264517.jpeg" alt="" style="height: 80px; width: 120px;">
-								</td>
-								<td>
-									<a href="" class="btn btn-sm btn-info">View</a>
-									<a href="" class="btn btn-sm btn-success">Edit</a>
-									<a href="" class="btn btn-sm btn-danger">Delete</a>
-								</td>
-							</tr>
+							<?php endwhile; ?>
 						</tbody>
 					</table>
 				</div>
