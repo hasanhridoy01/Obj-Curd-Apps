@@ -45,6 +45,34 @@
 
         }
 
+        /**
+         * Delete Single Data
+         */
+        public function deleteData($id)
+        {
+            
+            $data = $this -> delete('student', $id);
+
+            if ( $data ) {
+                
+               return "<p class=\" alert alert-danger \"> Student Deleted SuccessFull ! <button class=\"close\" data-dismiss=\"alert\">&times;</button></p>";;
+
+            }
+
+        }
+
+        /**
+         * Show All Single Data
+         */
+        public function showData($id)
+        {
+            
+            $data = $this -> find('student', $id);
+
+            return $data -> fetch_assoc();
+
+        }
+
     }
 
 

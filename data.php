@@ -2,9 +2,21 @@
 <?php include_once "vendor/autoload.php"; ?>
 <?php 
     
+    //use Class
     use App\Controller\Student;
-
+    
+    //class object/instance
     $student = new Student;
+
+    //GEt Id
+    if ( isset($_GET['delete']) ) {
+   	
+   	$id  = $_GET['delete'];
+
+    }
+    
+    //Get id recive
+    $mess = $student -> deleteData($id);
 
  ?>
 
@@ -21,6 +33,11 @@
 			<div class="card mt-2 mx-auto shadow-lg">
 				<div class="card-header">
 					<h2>View all Student</h2>
+					<?php 
+                       if ( isset($mess) ) {
+                       	echo $mess;
+                       }
+					 ?>
 					<a href="index.php" class="btn btn-sm btn-outline-success">Add Student</a>
 				</div>
 				<div class="card-body">
@@ -53,9 +70,9 @@
 									<img src="media/photo/students/<?php echo $student_data['photo'] ?>" alt="" style="height: 80px; width: 120px;">
 								</td>
 								<td>
-									<a href="" class="btn btn-sm btn-info">View</a>
+									<a href="show.php?id=<?php echo $student_data['id'] ?>" class="btn btn-sm btn-info">View</a>
 									<a href="" class="btn btn-sm btn-success">Edit</a>
-									<a href="" class="btn btn-sm btn-danger">Delete</a>
+									<a href="?delete=<?php echo $student_data['id'] ?>" class="btn btn-sm btn-danger">Delete</a>
 								</td>
 							</tr>
 							<?php endwhile; ?>

@@ -3,10 +3,19 @@
 <?php 
 
    //Class User
-   use app\Controller\Student;
+   use App\Controller\Student;
    
    //Class Object/instance
-   $Student = new Student;
+   $student = new Student;
+
+   //get id
+   if ( isset($_GET['id']) ) {
+     
+     $id = $_GET['id'];
+
+   }
+
+   $single_data = $student -> showData($id);
 
 
 
@@ -27,24 +36,24 @@
     	<div class="row">
     		<div class="card mt-3 mx-auto shadow-lg">
     			<div class="card-header">
-    				<h2>Data of: Hrdioy</h2>
+    				<h2>Data of: <?php echo $single_data['name'] ?></h2>
     				<a href="data.php" class="btn btn-sm btn-outline-info">View All Student</a>
     			</div>
     			<div class="card-body">
-            <img class="shadow" src="media/img/Students/616be71c7157c0ad24602d54de264517.jpeg" alt="" style="height: 200px; width: 200px; border-radius: 50%; display: block; margin: auto; border: 10px solid white; margin-bottom: 10px;">
-            <h3 style="text-align: center; font-family: sans-serif;">Hasan Hrdioy</h3>
+            <img class="shadow" src="media/photo/students/<?php echo $single_data['photo'] ?>" alt="" style="height: 200px; width: 200px; border-radius: 50%; display: block; margin: auto; border: 10px solid white; margin-bottom: 10px;">
+            <h3 style="text-align: center; font-family: sans-serif;"><?php echo $single_data['name'] ?></h3>
             <table class="table">
               <tr>
                 <td>name</td>
-                <td>name</td>
+                <td><?php echo $single_data['name'] ?></td>
               </tr>
               <tr>
                 <td>email</td>
-                <td>name</td>
+                <td><?php echo $single_data['email'] ?></td>
               </tr>
               <tr>
                 <td>cell</td>
-                <td>name</td>
+                <td><?php echo $single_data['cell'] ?></td>
               </tr>
             </table>   
           </div>
