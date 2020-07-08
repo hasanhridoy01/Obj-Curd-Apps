@@ -38,10 +38,10 @@
 						<tbody>
 							<?php 
 
-                               $data = $student -> allStudent();
+                               $all_data = $student -> allStudent();
                                
                                $i = 1;
-                               while( $student_data = $data -> fetch_assoc()):
+                               while( $student_data = $all_data -> fetch_assoc()):
 
 							 ?>
 							<tr>
