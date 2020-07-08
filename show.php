@@ -15,7 +15,7 @@
 
    }
 
-   $single_data = $student -> showData($id);
+   $single_datas = $student -> showData($id);
 
 
 
@@ -36,24 +36,24 @@
     	<div class="row">
     		<div class="card mt-3 mx-auto shadow-lg">
     			<div class="card-header">
-    				<h2>Data of: <?php echo $single_data['name'] ?></h2>
+    				<h2>Data of: <?php echo $single_datas['name'] ?></h2>
     				<a href="data.php" class="btn btn-sm btn-outline-info">View All Student</a>
     			</div>
     			<div class="card-body">
-            <img class="shadow" src="media/photo/students/<?php echo $single_data['photo'] ?>" alt="" style="height: 200px; width: 200px; border-radius: 50%; display: block; margin: auto; border: 10px solid white; margin-bottom: 10px;">
-            <h3 style="text-align: center; font-family: sans-serif;"><?php echo $single_data['name'] ?></h3>
+            <img class="shadow" src="media/photo/students/<?php echo $single_datas['photo'] ?>" alt="" style="height: 200px; width: 200px; border-radius: 50%; display: block; margin: auto; border: 10px solid white; margin-bottom: 10px;">
+            <h3 style="text-align: center; font-family: sans-serif;"><?php echo $single_datas['name'] ?></h3>
             <table class="table">
               <tr>
                 <td>name</td>
-                <td><?php echo $single_data['name'] ?></td>
+                <td><?php echo $single_datas['name'] ?></td>
               </tr>
               <tr>
                 <td>email</td>
-                <td><?php echo $single_data['email'] ?></td>
+                <td><?php echo $single_datas['email'] ?></td>
               </tr>
               <tr>
                 <td>cell</td>
-                <td><?php echo $single_data['cell'] ?></td>
+                <td><?php echo $single_datas['cell'] ?></td>
               </tr>
             </table>   
           </div>
