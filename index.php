@@ -40,7 +40,7 @@
            $mess = "<p class=\" alert alert-warning \"> Invalid Email Address ! <button class=\"close\" data-dismiss=\"alert\">&times;</button></p>";
        }else{
          
-           $student -> addNewStudent();
+           $mess = $student -> addNewStudent($name, $email, $cell, $photo);
 
        }
 
@@ -51,6 +51,13 @@
     		<div class="card mt-3 mx-auto shadow-lg">
     			<div class="card-header">
     				<h2>Sign Up</h2>
+                    <?php 
+                      
+                      if ( isset($mess) ) {
+                          echo $mess;
+                      }
+
+                     ?>
     				<a href="data.php" class="btn btn-sm btn-outline-info">View All Student</a>
     			</div>
     			<div class="card-body">
